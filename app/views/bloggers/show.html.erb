@@ -1,0 +1,14 @@
+<h1><%= @blogger.name %></h1>
+<p><%= @blogger.age %> years old</p>
+<p><%= @blogger.bio %></p>
+
+<h3><%= @blogger.name %>'s posts</h3>
+<p><%= @blogger.total_likes %> people have liked <%= @blogger.name %>'s posts</p>
+<p> Featured post: <%= link_to @blogger.featured_post.title, post_path(@blogger.featured_post)%></p>
+
+<h3> Top destinations </h3>
+<% @blogger.top_destinations.each do |id, count| %>
+    <% dest = Destination.find(id) %>
+    <p><%= count %> posts about <%= dest.name %></p>
+<% end %>
+<%= link_to "Create a new post", new_post_path %>

@@ -1,0 +1,11 @@
+<% @post.errors.full_messages.each do |message| %>
+    <p><%= message %>
+<% end %>
+
+<%= form_for @post do |f| %>
+    <%= f.collection_select(:blogger_id, Blogger.all, :id, :name, prompt: "Choose a blogger")%><br><br>
+    <%= f.collection_select(:destination_id, Destination.all, :id, :name, prompt: "Choose a destination")%><br><br>
+    Title: <%= f.text_field :title %><br><br>
+    Content: <%= f.text_area :content %><br><br>
+    <%= f.submit %>
+<% end %>
