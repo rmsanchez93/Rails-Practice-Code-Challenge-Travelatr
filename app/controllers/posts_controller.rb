@@ -32,7 +32,8 @@ class PostsController < ApplicationController
         render :edit
       end
     end
-  
+    
+#   What is this? A custom action? Exciting! We set up routes that when the button on the Post Show page is pressed, it follows the like_path to fire off this method, incrimenting our likes and redirecting us to the page with our updated model.
     def like
       @post = Post.find(params[:id])
       @post.likes += 1
