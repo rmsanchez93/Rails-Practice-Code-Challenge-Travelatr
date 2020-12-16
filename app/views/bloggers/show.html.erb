@@ -1,0 +1,21 @@
+<h1>Meet our Bloggers!</h1>
+
+<%=@blogger.name%> is a <%=@blogger.age%> year old, and when asked about themselves they gladly say:
+<br>
+"<%=@blogger.bio%>"<br>
+    -<%=@blogger.name%>
+<br>
+This author has amazed <%= @blogger.total_likes%> people so far with their writing!
+<br>
+Their most popular post by far is <%=link_to @blogger.featured_post.title, post_path(@blogger.featured_post)%>
+<br>
+Why not showcase even more of their talent? Here are their 5 most written about destinations! <br>
+<ul>
+<%@blogger.top_5_destinations.each do |destination|%>
+<li><%=link_to destination.name, destination_path(destination)%> located in <%=destination.country%>
+</li>
+<%end%>
+</ul>
+
+<%# This is all fairly straightforward. Using the methods written within our Blogger model we can call them on the instance of Blogger in our show page, meaning we can clean up our code and make it easier to read/follow %>
+

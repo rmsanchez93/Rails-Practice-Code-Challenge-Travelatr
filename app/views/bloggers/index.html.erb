@@ -1,0 +1,6 @@
+<h1>No one asked for a Blogger index, but here one is anyways!</h1>
+<%@bloggers.each do |blogger|%>
+<li><%=link_to blogger.name, blogger_path(blogger)%>
+<%end%>
+
+<%# As the h1 tag states, no one asked for this but regardless I just like it so I made one. %>

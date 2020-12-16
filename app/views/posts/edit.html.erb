@@ -1,0 +1,30 @@
+<h1>Update your blog post! </h1>
+<%# You can totally use the re-usable forms, this is almost an exact word for word copy of the new post form.  %>
+<% if @post.errors.any? %>
+  <div id="error_explanation">
+  <%# Bet you didn't know you could use pluralize like this! Takes in two arguements, the second argument is the word you are pluralizing and the first argument is how many there are. %>
+    <h3><%= pluralize(@post.errors.count, "error") %> prohibited this post from being updated:</h3>
+    <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%# By now forms should be old news. More practice with collection select! %>
+<%= form_for(@post) do |f| %>
+  <label>Title:</label><br>
+  <%= f.text_field :title %><br>
+
+  <label>Content:</label><br>
+  <%= f.text_area :content %><br>
+
+<label>Which blogger is writing this post? </label><br>
+<%= f.collection_select :blogger_id, Blogger.all, :id, :name %><br>
+
+<label>Which Destination is this post about? </label><br>
+<%= f.collection_select :destination_id, Destination.all, :id, :name %><br>
+
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,17 @@
+<h1>Behold the beauty of <%=@destination.name%></h1>
+<br>
+To learn of this beautiful land, check out these recent posts!
+<br>
+<%@destination.most_recent_5.each do |post|%>
+<li><%=link_to post.title, post_path(post)%> by <%=link_to post.blogger.name, blogger_path(post.blogger)%>
+<%end%>
+<br>
+<br>
+Still not sold? As you can see from <%=link_to @destination.featured_post.blogger.name, post_path(@destination.featured_post)%>'s post,
+the country of <%=@destination.country%> is fun for all!<br>
+In fact, the average age of our bloggers who have visited <%=@destination.name%> is only <%=@destination.average_age%> years old!
+<br>
+<br>
+Want to write your own blog post? <%=link_to "Click here!", new_post_path%>
+
+<%# Not a whole lot to write about for this one. Calling a lot of self methods, and you can see the power of associations as I make all these routes just by referencing associated models to the destination. %>

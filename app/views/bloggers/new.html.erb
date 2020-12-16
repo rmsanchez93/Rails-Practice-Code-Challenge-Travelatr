@@ -1,0 +1,28 @@
+<h1>Join our Blogging kingdom!</h1>
+
+<%# This is my error catch that I added because of the validations. The errors and errors.full_messages are both built into Rails, hence why I don't have those methods defined anywhere. %>
+<% if @blogger.errors.any? %>
+  <div id="error_explanation">
+  <%# Bet you didn't know you could use pluralize like this! Takes in two arguements, the second argument is the word you are pluralizing and the first argument is how many there are. %>
+    <h3><%= pluralize(@blogger.errors.count, "error") %> prohibited this blogger from being created:</h3>
+    <ul>
+      <% @blogger.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%# By now forms should be old news. This one is even more straightforward! %>
+<%= form_for(@blogger) do |f| %>
+  <label>Name:</label><br>
+  <%= f.text_field :name %><br>
+
+  <label>Age:</label><br>
+  <%= f.text_field :age %><br>
+
+  <label>Tell us about yourself!:</label><br>
+  <%= f.text_area :bio %><br>
+
+  <%= f.submit %>
+<% end %>

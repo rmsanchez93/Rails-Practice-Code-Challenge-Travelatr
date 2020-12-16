@@ -1,0 +1,16 @@
+<h1><%=@post.title%></h1>
+by <%= link_to @post.blogger.name, blogger_path(@post.blogger)%> in the wondrous city of <%=link_to @post.destination.name, destination_path(@post.destination)%> in <%=@post.destination.country%><br><br>
+We may not the best the best at naming (or writing) our articles, but here's one for you to enjoy anyways!<br>
+<br>
+<%# This is fancy but hacky code I wrote in use the built in .tr (translate) function, which takes in 2 arguments. first one is the value(s) that is searched for as a string, second one is the string it/they is/are translated into. Here I replace all quotes and brackets with an empty string to strip them from the content.%>
+<%=@post.content.tr('"[]', '')%>
+<br>
+<br>
+This post currently has <%=@post.likes%> likes.
+<br>
+You like what you are reading?
+<%# button takes in two arguments with this use, the first one is what the button displays the second one is the path the button directs the user to. I made this custom route that links to a custom action in our PostsController. %>
+<%= button_to "Like this post", like_path%>
+ 
+<br>
+Does something seem wrong? <%=link_to "Click here", edit_post_path(@post)%> to edit this post!
