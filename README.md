@@ -6,7 +6,7 @@ Our founder - a world renowned ice-cream-eating contest champion, gourmet hot-do
 
 ## Instructions
 
-Our vision has already begun! We've created migrations and a seed file for you to begin the execution of our vision! Create the associations within your models, then run `rake db:setup`!
+<!-- Our vision has already begun! We've created migrations and a seed file for you to begin the execution of our vision! Create the associations within your models, then run `rake db:setup`! -->
 
 ## Deliverables
 
@@ -19,10 +19,10 @@ For each model, we have a specific vision in mind:
 
 Blogger:
 
-1. Users should be able to create a new blogger
+<!-- 1. Users should be able to create a new blogger -->
  	- Bloggers should have unique names and ages above 0, and their bio should be over 30 characters long.
 2. Users should be able to see the profile page of a blogger. On this page, a user should see:
-	- The total likes on all of that blogger's posts
+	<!-- - The total likes on all of that blogger's posts -->
 	- A link to that blogger's featured post (the post with the most likes)
 	- **BONUS** A list of that user's top 5 most written about destinations (the destinations with the most posts)
 
@@ -41,6 +41,6 @@ Post:
 	- A post should have a title
 	- A post should have content longer than 100 characters
 2. Users should be able to see a post's page with its title and content displayed. On this page, a user should see:
-	- A link to the page of that post's author
+	- A link to the page of that post's blogger
 	- A link to the page of that post's destination
 	- A like button link that increases the like count for that post (should take the user to the same page)
