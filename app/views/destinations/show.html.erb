@@ -1,0 +1,19 @@
+<h1>Welcome to <%= @destination.name%></h1>
+People love it here! Look at 
+<%= link_to "this", post_path(@destination.featured_post) %> 
+amazing post that was written about it!<br>
+<br>
+Not only that, check out our 5 most recent posts about our beautiful country of <%= @destination.country%>.
+
+<% @destination.most_recent_5.each do |post|%>
+<li><%=link_to post.title, post_path(post)%></li>
+<% end %>
+
+This place is so popular with writers. The average age of our bloggers is <%= @destination.average_age%>
+<br>
+<br>
+Want to write about it as well? 
+<%= link_to "Click here", new_post_path%> to write a new blog post!
+<br>
+Not a part of our team?
+<%= link_to "Join us!", new_blogger_path%>

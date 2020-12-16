@@ -1,0 +1,20 @@
+<h1><%=@post.title%></h1>
+Written by:<%=link_to @post.blogger.name, blogger_path(@post.blogger)%>
+<br>
+<br>
+<%=@post.content.tr('"[]', '')%>
+<br>
+<br>
+Like what you're reading?<br>
+<%=link_to "Click here", destination_path(@post.destination)%>
+<br>
+<br>
+<%= @post.likes%> people have liked this post!
+<br>
+Want others to know that you like what you're reading?
+<br>
+<%= button_to "Click here to like this post", like_path%>
+<br>
+Don't like what you're reading?
+<%= link_to "Click here", edit_post_path(@post)%> to edit!
+

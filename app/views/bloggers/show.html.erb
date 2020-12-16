@@ -1,0 +1,16 @@
+<h1>Welcome to <%=@blogger.name%>'s blogs!</h1>
+<br>
+<%=@blogger.name%> is <%=@blogger.age%> years old! Curious to know more? So were we! This is what <%=@blogger.name%> had to say about themselves!<br><br>
+<%=@blogger.bio%>
+<br>
+<br>
+Are you impressed? So were <%=@blogger.total_likes%> other people!
+<br>
+<br>
+In fact, their most popular blog post is <%=link_to @blogger.featured_post.title, post_path(@blogger.featured_post)%>
+<br>
+<br>
+Look at <%=@blogger.name%>'s favorite places!
+<%@blogger.top_5_destinations.each do |destination|%>
+<li><%=destination.name%>
+<%end%>

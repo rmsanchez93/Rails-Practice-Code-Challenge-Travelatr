@@ -1,0 +1,23 @@
+<h1> New </h1>
+
+<% if @blogger.errors.any? %>
+  <div id="error_explanation">
+ 
+    <h3><%= pluralize(@blogger.errors.count, "error") %> prohibited this blogger from being created:</h3>
+    <ul>
+      <% @blogger.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for(@blogger) do |f|%>
+<label>Name:</label>
+<%= f.text_field :name%><br>
+<label>Age:</label>
+<%= f.number_field :age%><br>
+<label>Tell us about yourself!</label><br>
+<%= f.text_area :bio%><br>
+<%= f.submit%>
+<%end%>
