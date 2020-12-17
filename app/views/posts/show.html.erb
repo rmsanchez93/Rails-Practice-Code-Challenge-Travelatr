@@ -1,0 +1,11 @@
+<h1>Post Page</h1>
+<hr><br>
+
+Title: <%= @post.title %><br><br>
+
+Content: <br>
+<%= @post.content %><br><br>
+
+Blogger: <%= link_to @post.blogger.name, @post.blogger %><br><br>
+
+Destination: <%= link_to @post.destination.name, @post.destination %>

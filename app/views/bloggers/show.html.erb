@@ -1,0 +1,15 @@
+<h1>Blogger Profile</h1>
+<hr><br>
+
+Name: <%= @blogger.name %><br><br>
+
+<% if @featured_post %>
+    Featured Post: <%= link_to @featured_post.title, @featured_post %><br><br>
+<% end %> <br><br>
+
+Total Likes: <%= @total_likes %><br><br>
+
+Top Destinations: <br>
+<% @top_destinations.each do |destination| %>
+    <li><%= link_to destination.name, destination %></li>
+<% end %>
